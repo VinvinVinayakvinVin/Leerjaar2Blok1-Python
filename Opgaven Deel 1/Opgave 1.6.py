@@ -29,5 +29,14 @@ Created on Mon Sep  5 11:01:41 2022
 """
 1.6.5 antwoord:
     De cijfer of teksten worden samengeplakt.
+
+    ⬇
+    
+    File "<ipython-input-14-3ed3b5c99aa0>", line 1
+    print(4 5)
+            ^
+            SyntaxError: invalid syntax
+    
 """
-print("test""test")
+
+print("⛏⛏⛏😎😎😎")

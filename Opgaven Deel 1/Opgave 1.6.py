@@ -38,5 +38,3 @@ Created on Mon Sep  5 11:01:41 2022
             SyntaxError: invalid syntax
     
 """
-
-print("⛏⛏⛏😎😎😎")

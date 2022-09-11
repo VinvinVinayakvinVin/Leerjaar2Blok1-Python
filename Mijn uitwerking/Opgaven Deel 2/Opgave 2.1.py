@@ -1,8 +1,10 @@
-# -*- coding: utf-8 -*-
+# -*-coding:utf-8 -*-
 """
-Created on Sun Sep 11 16:59:47 2022
-
-@author: vinay
+@File    :   Opgave 2.1.py
+@Time    :   2022/09/11 18:26:00
+@Author  :   Vinayak Shukla Kalapnat
+@Version :   2.0
+@Desc    :   Opdracht 2.1, maar nu met een nieuwe header!
 """
 
 voornaam = input("Type een voornaam: ")

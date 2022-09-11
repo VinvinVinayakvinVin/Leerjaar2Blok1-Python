@@ -9,8 +9,8 @@ Created on Mon Sep  5 10:28:48 2022
 1.4.1 opdracht:
     Dit berekend de aantal seconden.
 """
-x = 42
-seconden = x * 60 + 42
+x = 42  # Variabel x staat voor het aantal minuten.
+seconden = x * 60 + 42 # Dit berekent het aantal seconden.
 print(seconden, "seconden")
 
 """
@@ -18,8 +18,7 @@ print(seconden, "seconden")
     Dit berekend de aantal miles
     Note: 1.61 km = 1 mile
 """
-z = 1.61
-miles = 10/z
+miles = 10/1.61 # Dit berekent het aantal miles in 10 kilometer.
 print(miles, "miles")
 
 """

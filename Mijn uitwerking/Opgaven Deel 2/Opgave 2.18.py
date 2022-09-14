@@ -31,4 +31,4 @@ print(x, y)
 
 # 42 = n  # SyntaxError: cannot assign to literal
 
-naam = "Vinayak". # SyntaxError: invalid syntax (komt door de punt aan het einde!)
+# naam = "Vinayak". # SyntaxError: invalid syntax (komt door de punt aan het einde!)

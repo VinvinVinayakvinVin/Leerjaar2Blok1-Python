@@ -31,3 +31,11 @@ print(f"sin(x)^2+cos(x)^2 = {uitvoer}")
 # 0.8623188722876839 
 # 0.7435938375035028
 # 0.25640616249649706 + 0.7435938375035028 = 0.99999999999999986 ongeveer 1.0
+
+'''
+Uitwerking:
+
+Python rond  𝑠𝑖𝑛(𝑥)  en  𝑐𝑜𝑠(𝑥)  uiteindelijk af.
+Door afrondfouten krijg je niet altijd precies 1 uit  𝑠𝑖𝑛2(𝑥)+𝑐𝑜𝑠2(𝑥).
+Wiskundig gezien komt er wel altijd precies 1 uit.
+'''

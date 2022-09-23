@@ -25,7 +25,25 @@ import random
 random_num1 = random.random()
 random_num2 = random.random()
 random_num3 = random.random()
-print(f"{random_num1}\n{random_num2}\n{random_num3}")
+print(f"{random_num1}    {random_num2}    {random_num3}")
+
+length_num1 = len(str(random_num1)) + 4
+length_num2 = len(str(random_num2)) + 4
+length_num3 = len(str(random_num3)) + 4
+
+# length_num1 = 30  # Ik ging hier testen hoe die ljust functie werkt.
+# length_num2 = 20  # En ik ging ook bekijken als je de waardens veranderd.
+# length_num3 = 1   # De spatie (witregels) tussen de random getallen kan je aanpassen.
+
+# print(len(str(random_num1)))  # Zien hoeveel karakters er bestaan uit het waarde van random_num1/2/3.
+# print(len(str(random_num2)))
+# print(len(str(random_num3)))
+
+str_num1 = str(random_num1).ljust(length_num1)
+str_num2 = str(random_num2).ljust(length_num2)
+str_num3 = str(random_num3).ljust(length_num3)
+
+print(f"{str_num1}{str_num2}{str_num3}")
 
 '''
 # Uitwerking:
@@ -59,4 +77,3 @@ print(f'{random1_string}{random2_string}{random3_string}')
 # 0.029898263221144084    0.0335937898510863    0.10547926099254601
 # 0.029898263221144084    0.0335937898510863    0.10547926099254601  
 '''
-

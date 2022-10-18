@@ -117,5 +117,14 @@ else:
 
 # # Wat doet die f"{test:+}"? Waarbij test een variabel naam is.
 
-# test = 4
+# test = 4012312.12003
 # print(f"{test:+}")
+# print(f"{test:_}")
+# print(f"{test:,}")
+# print(f"{test:+,}")
+# print(f"{test:+,}".replace(',', 'aaaa'))    # Ik ging hier testen hoe die replace function werkt bij string value.
+
+'''
+Mijn tweede poging om dit programma te bouwen!
+'''
+

@@ -128,3 +128,30 @@ else:
 Mijn tweede poging om dit programma te bouwen!
 '''
 
+a = float(input("Vul waarde voor a: "))
+b = float(input("Vul waarde voor b: "))
+c = float(input("Vul waarde voor c: "))
+
+def discriminant(a, b, c):
+    """
+    Dit berekent het discriminant van de abc-formule.
+    """
+    return pow(b, 2) - 4 * a * c
+
+def abc_formule(a, b, c):
+    """
+    Dit berekent de twee oplossingen uit voor x m.b.v. de abc-formule.
+    """
+    print((-b + discriminant(a, b, c) ** (1/2)) / (2 * a))
+    print((-b - discriminant(a, b, c) ** (1/2)) / (2 * a))
+
+
+if a == 0:
+    print(f"x = {-c/b}")
+elif discriminant(a, b, c) < 0:
+    print("Er zijn geen oplossingen!")
+elif discriminant(a, b, c) == 0:
+    print(f"Oplossing is: x = {-b/2}")
+else:
+    print("Er zijn twee oplossingen!")
+    abc_formule(a, b, c)

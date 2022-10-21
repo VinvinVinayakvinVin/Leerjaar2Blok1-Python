@@ -17,20 +17,20 @@ De uitvoer is het woord met links en rechts ervan n-maal de letter.
 (Bijv. invoer: plantje R 5. De uitvoer is dan RRRRRplantjeRRRRR).
 '''
 
-# n = int(input("Vul een geheel getal voor n in: "))
-# letter = input("Type een letter in: ")
-# woord = input("Type een woord in: ")
+n = int(input("Vul een geheel getal voor n in: "))
+letter = input("Type een letter in: ")
+woord = input("Type een woord in: ")
 
-# def gek_woord(woord, letter, n):
-#     """
-#     Dit print uit het woord met links en rechts n maal het letter om het woord heen. (vreemd...).
-#     """
+def gek_woord(woord, letter, n):
+    """
+    Dit print uit het woord met links en rechts n maal het letter om het woord heen. (vreemd...).
+    """
     
-#     print(letter*n, end="")
-#     print(woord, end="")
-#     print(letter*n)
+    print(letter*n, end="")
+    print(woord, end="")
+    print(letter*n)
 
-# gek_woord(woord, letter, n)
+gek_woord(woord, letter, n)
 
 
 '''

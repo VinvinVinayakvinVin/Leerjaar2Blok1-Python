@@ -185,3 +185,75 @@ print(lijst)
 
 nieuwe_lijst = lijst_aanpassen(lijst)
 print(nieuwe_lijst)
+
+
+'''
+# Uitwerking (alternatieve versie):
+
+#Een andere manier voor lijstaanpassen()
+#Deze versie veranderd de originele lijst
+
+# import random
+
+def lijstmaker(n):
+    """
+    Maakt een lijst van n random elementen met een waarde tussen [1, 10]
+    
+    Parameters
+    ----------
+    n: float
+       de lengte van de lijst 
+       
+    Returns
+    -------
+    lijst
+    
+    """
+    lijst = []
+    
+    for i in range(n):
+        lijst.append(random.randint(1, 10))
+    
+    return lijst
+
+def lijstaanpassen(lijst):
+    """
+    Kwadrateert elk element van een lijst
+    
+    Parameters
+    ----------
+    lijst: list
+           de lijst om te kwadrateren
+       
+    Returns
+    -------
+    list
+        een lijst met elk element gekwadrateert
+    
+    """
+    n = len(lijst)
+    
+    for i in range(n):
+        lijst[i] = lijst[i] **2
+        
+    return lijst
+
+n = int(input('Vul een geheel getal in\n'))
+
+lijst = lijstmaker(n)
+print(lijst)
+
+nwe_lijst = lijstaanpassen(lijst)
+print(nwe_lijst)
+
+
+# # Output:
+
+# Vul een geheel getal in
+# 6
+# [1, 2, 3, 5, 1, 2]
+# [1, 4, 9, 25, 1, 4]
+'''
+
+# De eerste poging is vrijwel hetzelfde als de uitwerking van alternatieve versie.
+# De tweede poging is vrijwel hetzelfde als de eerste uitwerking.

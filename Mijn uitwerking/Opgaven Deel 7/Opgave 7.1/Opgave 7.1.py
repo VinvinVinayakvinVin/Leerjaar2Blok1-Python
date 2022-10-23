@@ -334,7 +334,7 @@ lines = file.readlines()
 for line in lines:
     print(line.strip())
     
-file.close
+file.close()
 
 
 
@@ -388,7 +388,15 @@ file = open('Tolkien.txt')
 for line in file:
     print(line.strip())
     
-file.close
+file.close()
+
+
+file = open('Tolkien.txt')
+
+for line in file:
+    print(line)
+    
+file.close()
 
 # Uitwerking voor h is er niet, het is gewoon de code uitproberen ⬆️
 
@@ -423,7 +431,7 @@ file = open('Tolkien.txt')
 for woord in file.readline().split():   # Let op! Als je split gebruikt, dan returnt het in array type. Bij strip juist string!
     print(woord)
 
-file.close
+file.close()
 
 # regel = "Kunnen we dit opbreken naar een lijst met deze woorden?"
 # print(regel.split())
@@ -471,9 +479,44 @@ Hint: nested for-loop
 '''
 
 print("\n\n\nOpgave j:\n")
-file = open('Tolkien.txt')  
+file = open('Tolkien.txt')
+n = len(file.readlines())            # len(file.readlines()) retourneert de waarde 11, omdat er 11 zinnen in de bestand zit.
+file.close()
 
-for zin in range(len(file.readlines())):
-    pass
+file = open('Tolkien.txt')
+for i in range(n):
+    zin = file.readline()
+    # print(zin.split())
+    for woord in zin.split():       # zin.split() is om de woorden elementen te maken. Dus een lijst maken waarbij de elementen individuele woorden zijn.
+        print(woord)
+file.close()
 
+
+# file = open("Tolkien.txt")
+# lines = file.readlines()            # lines = ['zin', 'zin', ..., 'zin']
+# for line in lines:
+#     for word in line.split():       # line.split = ['woord', 'woord', ..., 'woord']
+#         print(word)
+# file.close()
+
+
+# Uitwerking voor j ⬇️
+'''
+file = open('Tolkien.txt')
+lines = file.readlines()
+
+for line in lines:
+    for word in line.split():
+        print(word)
+    
 file.close
+
+
+
+# Er staat geen output bij deze uitwerking...
+'''
+
+
+
+# ! BELANGRIJK
+# .strip() haalt de \n weg, .split() maakt de string een lijst van, waarbij de witte regels eruit wordt gehaald en de 'woorden' elementen worden!

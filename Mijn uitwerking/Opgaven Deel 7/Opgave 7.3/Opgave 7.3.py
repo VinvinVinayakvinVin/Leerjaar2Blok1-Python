@@ -129,6 +129,11 @@ Compute the percentage of words in the list that have no “e”.
 
 
 
+import os
+
+from attr import has
+
+
 def has_e(woord):
     """
     Functie bekijkt of een woord, een letter e bevat.
@@ -150,11 +155,27 @@ def has_e(woord):
         if letter == 'e':
             p = True
             break
-    if p:
-        pass
+    # if p == False:
+    #     print(woord)
 
     return p
 
+os.chdir(os.getcwd() + "\\Mijn uitwerking\\Opgaven Deel 7\\Opgave 7.3\\")
+# file = open("Tolkien.txt")        # Klein schalig testen, anders duurt het lang als het programma niet klopt en moet uitprinten.
+file = open("words.txt")
+words = 0
+words_without_e = 0
+
+for zin in file.readlines():
+    for woord in zin.split():
+        words += 1
+        if has_e(woord) == False:
+            words_without_e += 1
+            print(woord)
+
+file.close()
+print(f"Er zijn {words} woorden en van die woorden zijn er {words_without_e} woorden die geen letter e bevatten.")
+print(f"De percentage van zonder-e-woorden zijn: {words_without_e/words*100:.2f}%")
 
 
 # Uitwerking ⬇️

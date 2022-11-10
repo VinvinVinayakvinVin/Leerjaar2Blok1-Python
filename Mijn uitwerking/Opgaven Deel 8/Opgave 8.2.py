@@ -14,10 +14,11 @@ Je programma stopt pas als er een getal wordt geprint dat groter is dan 0,9.
 '''
 
 import random
+import math
 
 num = 0
 while num <= 0.9:
-    num = random.random()
+    num = round(random.random(), 3)
     print(num)
 
 

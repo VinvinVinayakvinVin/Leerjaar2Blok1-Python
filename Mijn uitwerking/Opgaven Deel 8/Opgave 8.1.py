@@ -13,21 +13,21 @@
 '''
 
 i = 0
-while i < 10:
+while i < 10:         # vanaf 1 t/m 10
     i = i + 1
     print("hi", i)
 
 print()
 
 j = 1
-while j <= 10:
+while j <= 10:        # vanaf 2 t/m 11
     j += 1
     print("hi", j)
 
 print()
 
 i = 1
-while i <= 10:
+while i <= 10:        # vanaf 1 t/m 10
   print('Hello, World!', i)
   i += 1
 

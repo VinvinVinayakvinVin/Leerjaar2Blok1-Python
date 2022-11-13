@@ -7,20 +7,28 @@
 @Desc    :   None
 '''
 
-# import os
+import os
 
-# os.chdir(os.getcwd() + "\\Eindopdracht\\")
+os.chdir(os.getcwd() + "\\Eindopdracht\\")
 
-# file = open("test_input.txt")
+file = open("test_input.txt")
 
-# # for line in file.readlines():
-# #     print(line)
+file.readline() # skip/overslaan eerste regel van die trekkingsgetallen.
 
-# # print(file.read())
+bingokaart = []
+temp_lijst = []
 
-# file.close()
+for line in file.readlines():
+    element = [line.strip()][0].split()
+    # if line.split() != []:
+    #     temp_lijst.append(int(element))
+    if element != []:               # element is hierbij een lijst!?!?!!? vb -> element = ['22', '13', '17', '11', '0']
+        print(element)
+        for i in element:
+            temp_lijst.append(int(i))
+        bingokaart.append(temp_lijst)
+        temp_lijst = []
 
+print(bingokaart)
 
-txt = '22 13 17 11  0'
-lijst = txt.split()
-print(lijst)
+file.close()

@@ -56,36 +56,25 @@ def transponeren(bingokaart):
 
 bingokaart = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18,19, 20], [21, 2, 23, 24, 25]]
 trekkingslijst = [7, 4, 9, 5, 11, 17, 23, 2, 10, 14, 21, 24, 12, 16, 13, 6, 15, 25, 18, 22, 20, 8, 19, 3, 1]
+laatste_trekgetal = -1
 
 print("\n\nbingokaart:")
 print(bingokaart, "\n\n")
 stop = False
 
-# checks per row!
 for trekgetal in trekkingslijst:
     for rij in range(5):
         for bingogetal in range(5):
             if bingokaart[rij][bingogetal] == trekgetal:
-                print("\n", bingokaart[rij][bingogetal])
+                if stop == False:
+                    print(f"\n{trekgetal}")
+                laatste_trekgetal = bingokaart[rij][bingogetal]
                 bingokaart[rij][bingogetal] = ""
                 for l in range(len(bingokaart)):
-                    print(bingokaart[l])
+                    if stop == False:
+                        print(bingokaart[l])
         if bingokaart[rij] == ['', '', '', '', ''] or transponeren(bingokaart)[rij] == ['', '', '', '', '']:
-            print("BINGO!")
+            print("BINGO!", laatste_trekgetal)
             stop = True
     if stop:
         break
-
-#      12
-# [1, '', 3, '', '']
-# [6, '', 8, '', '']
-# ['', '', 13, '', 15]
-# [16, '', 18, 19, 20]
-# ['', '', '', '', 25]
-
-#  16
-# [1, '', 3, '', '']
-# [6, '', 8, '', '']
-# ['', '', 13, '', 15]
-# ['', '', 18, 19, 20]
-# ['', '', '', '', 25]

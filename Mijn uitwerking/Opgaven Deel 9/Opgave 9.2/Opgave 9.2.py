@@ -187,4 +187,75 @@ print("lower: " + a_str.lower())
 print("upper: " + a_str.upper())
 
 
-#TODO range(), input(), print(), int(), str(), ... etc
+# range func.
+print("\n\nrange func gebruiken:")
+print("simple range use (from 0 inclusive to 10 exclusive):")
+for i in range(10):
+    print(i)
+
+print("\n\nsimple range use (from 0 inclusive to 10 exclusive) v2:")
+for i in range(0, 10):
+    print(i)
+
+print("\n\nsimple range use (from 0 inclusive to 10 exclusive) v3:")
+for i in range(0, 10, 1):
+    print(i)
+
+print("\n\nsimple range use (from 0 inclusive to 10 exclusive) with steps of 2:")
+for i in range(0, 10, 2):
+    print(i)
+
+print("\n\nsimple range use (from 0 inclusive to 100 exclusive) with steps of 5:")
+for i in range(0, 100, 5):
+    print(i)
+
+print("\n\nsimple range use (from 0 inclusive to 100 exclusive) with steps of 5 v2:")
+for i in range(0, 20):
+    print(i*5)
+
+# input functie.
+print("\n\ninput func")
+num = int(input("hoi type nummer in: "))
+floatnum = float(input("hoi type nummer in float type in: "))
+txt = input("type tekst in: ")  # Dit returnt toch al in string type. Dus geen str() func gebruiken, is onnodig.
+print(num)
+print(floatnum)
+print(txt)
+
+
+# print func
+print("\n\nprint func")
+print("test, maar hier is geen \\n gebruikt.", end="")
+print("test") # Hierbij is standaard wel \n gebruikt.
+
+print("\n\nMethodes hoe je waardes in string kan erin zetten:")
+x = 10
+print("tekst " + str(x))
+print(f"tekst x")
+print("tekst", x)
+
+
+# extraas:
+print("\n\n extraas:")
+lijst = []
+begin = int(input("Vul een begin geheel getal in voor range func: "))
+eind = int(input("Vul een eind geheel getal in voor range func: "))
+for i in range(begin, eind):
+    lijst.append(i)
+print("Een lijst gemaakt door inputs: " + str(lijst))
+
+
+'''
+print(‘Hello, World!’)* print(‘Hello’, ‘World’, ‘!’)
+print(‘Hello, World!’, end = ‘’)
+
+!! * b. Gegeven de operatoren + * - / % //.
+'''
+
+# + * - / % //
+print("\n\n3 + 3 = " + str(3 + 3))
+print("\n\n3 * 3 = " + str(3 * 3))
+print("\n\n3 - 3 = " + str(3 - 3))
+print("\n\n3 / 3 = " + str(3 / 3))  # Let op, dit veranderd gauw naar float type die 3 / 3 = 1.0
+print("\n\n3 % 2 = " + str(3 % 2))
+print("\n\n10 // 3 = " + str(10 // 3))

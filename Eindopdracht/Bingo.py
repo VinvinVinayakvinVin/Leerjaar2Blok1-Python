@@ -7,38 +7,20 @@
 @Desc    :   None
 '''
 
-import os
+# import os
 
-# oude_lijst = ['7', '4', '9', '5', '11', '17', '23', '2', '0', '14', '21', '24', '10', '16', '13', '6', '15', '25', '12', '22', '18', '20', '8', '19', '3', '26', '1\n']
-# nieuwe_lijst = []
+# os.chdir(os.getcwd() + "\\Eindopdracht\\")
 
-# for i in oude_lijst:
-#     nieuwe_lijst.append(int(oude_lijst[i].strip("\n")))
+# file = open("test_input.txt")
 
-# print(nieuwe_lijst)
+# # for line in file.readlines():
+# #     print(line)
 
-# txt = "Hoi ik ga slapen"
-# lijst = txt.split()
-# print(lijst)
+# # print(file.read())
 
-os.chdir(os.getcwd() + "\\Eindopdracht\\")
+# file.close()
 
-file = open("test_input.txt")
-# nummers = file.readline()
-# print(nummers)
-# lijst = nummers.split()
-# print(lijst)
 
-txt = file.readline()
-print(txt)
-txt = txt.replace(",", " ")
-print(txt)
+txt = '22 13 17 11  0'
 lijst = txt.split()
 print(lijst)
-
-for i in range(len(lijst)):
-    lijst[i] = int(lijst[i])
-
-print(lijst)
-
-file.close()

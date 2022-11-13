@@ -23,3 +23,9 @@ print(x)
 # Shorts for list comprehension:
 lijst = [i**2 for i in range(0, 10+1)]
 print(lijst)
+
+# Gekkige manier hoe je string kan pakken vanaf een bepaald punt.
+txt = 'Netflixen en bingewatchen'
+print(txt.split()[0])
+print(txt[:9])  # 1=N, 2=e, 3=t, ..., 9=n, 10=" ".
+print(txt[13:])

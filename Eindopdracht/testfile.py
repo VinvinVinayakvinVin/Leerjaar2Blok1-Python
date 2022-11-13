@@ -5,94 +5,87 @@ Created on Sun Nov  6 21:35:37 2022
 @author: vinay
 """
 
-# # Deze statement kan je vervangen met test_input = file.read()
-# test_input = """
-# 7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
+def findindexnums(bingokaart, trekkingsgetal):
+    """
+    finds indexnum of 2d array
 
-# 22 13 17 11  0
-#  8  2 23  4 24
-# 21  9 14 16  7
-#  6 10  3 18  5
-#  1 12 20 15 19
+    Parameters
+    ----------
+    bingokaart: 2d array
+    trekkingsgetal: int
 
-#  3 15  0  2 22
-#  9 18 13 17  5
-# 19  8  7 25 23
-# 20 11 10 24  4
-# 14 21 16 12  6
+    Returns
+    -------
+    indexnums: array
+    """
 
-# 14 21 17 24  4
-# 10 16 15  9 19
-# 18  8 23 26 20
-# 22 11 13  6  5
-#  2  0 12  3  7
-# """
+    indexnums = []
 
-# print(test_input)
+    for i in range(len(bingokaart)):
+        for j in range(len(bingokaart[i])):
+            if trekkingsgetal == bingokaart[i][j]:
+                indexnums.append(i)
+                indexnums.append(j)
+                break
 
-# for line in test_input.split():
-#     print(line)
+    return indexnums
 
+def transponeren(bingokaart):
+    """
+    Dit wisselt alle rijen met kolommen.
 
+    Parameters
+    ----------
+    bingokaart: 2d array
 
+    Returns
+    -------
+    transponeerde_kaart: 2d array
+    """
 
-# import os
-
-
-# print(os.getcwd())
-
-# file = open('test_input.txt')
-# # lines = file.readlines()
-# # i = 0
-# # bingo_num = 0
-
-# # # bingo = [[[]]]
-
-# # # Deze for loop print de eerste bingokaart.
-# # for line in lines:
-# #     i += 1
-# #     if (3 <= i <= 7):
-# #         for woord in line.split():
-# #             print(woord, end="\t")
-# #         print("\n")    
-
-# # bingo_num += 1    
-# # print(f"Bord {bingo_num}")
-# txt = file.read()
-# print(txt)
-# file.close
+    # per kolom printen:
+    transponeerde_kaart = []
+    teller = 0
+    for i in range(5):
+        transponeerde_kaart.append([])
+        for j in range(5):
+            transponeerde_kaart[teller].append(bingokaart[j][i])
+        teller += 1
+    return transponeerde_kaart
 
 
-# nummers = "22 13 17 11 0"
-# print(nummers.split())
-# for cijfer in nummers.split():
-#     print(cijfer, end="\t")
-# print("\n")
+bingokaart = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18,19, 20], [21, 2, 23, 24, 25]]
+trekkingslijst = [7, 4, 9, 5, 11, 17, 23, 2, 10, 14, 21, 24, 12, 16, 13, 6, 15, 25, 18, 22, 20, 8, 19, 3, 1]
 
-# print(12312313)
+print("\n\nbingokaart:")
+print(bingokaart, "\n\n")
+stop = False
 
+# checks per row!
+for trekgetal in trekkingslijst:
+    for rij in range(5):
+        for bingogetal in range(5):
+            if bingokaart[rij][bingogetal] == trekgetal:
+                print("\n", bingokaart[rij][bingogetal])
+                bingokaart[rij][bingogetal] = ""
+                for l in range(len(bingokaart)):
+                    print(bingokaart[l])
+        if bingokaart[rij] == ['', '', '', '', ''] or transponeren(bingokaart)[rij] == ['', '', '', '', '']:
+            print("BINGO!")
+            stop = True
+    if stop:
+        break
 
-# test = "\n\n, 5"
-# print("\n" in test)
-# print("4" in test)
+#      12
+# [1, '', 3, '', '']
+# [6, '', 8, '', '']
+# ['', '', 13, '', 15]
+# [16, '', 18, 19, 20]
+# ['', '', '', '', 25]
 
-
-input = """1,2,3,4,5"""
-
-lijst = []
-for num in input.split(","):
-    lijst.append(num)
-    
-print("lijstje voor 1,2,3,4,5 -> ", lijst, end="\n\n")
-
-
-
-input = "1,2,3,    4"
-input.strip()
-
-print(input)
-
-# for lines in input:
-#     cropped_input
-
-
+#  16
+# [1, '', 3, '', '']
+# [6, '', 8, '', '']
+# ['', '', 13, '', 15]
+# ['', '', 18, 19, 20]
+# ['', '', '', '', 25]

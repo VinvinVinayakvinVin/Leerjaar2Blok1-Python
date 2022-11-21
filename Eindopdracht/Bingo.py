@@ -56,9 +56,9 @@ def transponeren(bingokaart):
     return transponeerde_kaart
 
 
-import os
+# import os
 
-os.chdir(os.getcwd() + "\\Eindopdracht\\")
+# os.chdir(os.getcwd() + "\\Eindopdracht\\")
 file = open("test_input.txt")
 
 trekkingsgetallen = file.readline().replace(",", " ").split()
@@ -96,48 +96,27 @@ file.close()
 # Hier beneden gaat over de aanroepen van trekkingsgetallen.
 # En het checken van bingokaarten, of daar een trekkingsgetal zit.
 
-# getalgeroepen = []
-# aantal_op_een_rij = 0
-# aantal_op_een_kolom = 0
-# aantal_geroepen = 0
-# aantal_bingos = 0
-
-# for trekgetal in trekkingsgetallen:
-#     getalgeroepen.append(trekgetal)
-#     aantal_geroepen += 1
-
-#     for i in range(len(bingokaarten)):                  # i is een lijst van een bingokaart.
-#         for j in range(len(bingokaarten[i])):           # j is een lijst van een rij uit een bingokaart.
-#             for k in bingokaarten[i][j]:                # k is een getal van een rij uit een bingokaart.
-#                 if k == getalgeroepen[aantal_geroepen - 1]:
-#                     aantal_op_een_rij += 1
-#                     if aantal_op_een_rij == 5:
-#                         aantal_bingos += 1
-#                         print(f"Bingokaart {i + 1} heeft bingo na {aantal_geroepen} trekkingen.")
-#                         break
-#                 aantal_op_een_rij = 0
-
-# print(getalgeroepen)
-
 stop = False
 laatste_trekgetal = -1
 aantal_trekkingen = 0
+aantal_bingos = 0
+lijst_dat_bingo_heeft = []
 
 for trekgetal in trekkingsgetallen:
+    aantal_trekkingen += 1
     for bingokaart_num in range(len(bingokaarten)):
         for rij in range(5):
             for i in range(5):  # Dit is een getal uit een rij.
                 if bingokaarten[bingokaart_num][rij][i] == trekgetal:
-                    if stop == False:
-                        print(f"\n{trekgetal}")
+                    print(f"\n{trekgetal}")
                     laatste_trekgetal = bingokaarten[bingokaart_num][rij][i]
                     bingokaarten[bingokaart_num][rij][i] = ""
                     print(f"bingokaart: {bingokaart_num + 1}, aantal getallen getrokken: {aantal_trekkingen}")
                     for l in range(len(bingokaarten[bingokaart_num])):
                         # if stop == False:
                         print(bingokaarten[bingokaart_num][l])
-            if bingokaarten[bingokaart_num][rij] == ['', '', '', '', '']:# or transponeren(bingokaarten[bingokaart_num][rij]) == ['', '', '', '', '']:
+        if bingokaarten[bingokaart_num][rij] == ['', '', '', '', ''] or transponeren(bingokaarten[bingokaart_num])[rij] == ['', '', '', '', '']:
+            if bingokaart_num not in lijst_dat_bingo_heeft:
                 print("BINGO!", laatste_trekgetal)
-                stop = True
-        if stop:
-            break
+                lijst_dat_bingo_heeft.append(bingokaart_num + 1)
+                # aantal_bingos += 1

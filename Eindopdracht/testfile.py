@@ -78,3 +78,8 @@ for trekgetal in trekkingslijst:
             stop = True
     if stop:
         break
+
+bingokaarten = [bingokaart]
+print(bingokaarten)
+# print(bignokaarten)
+print(transponeren(bingokaarten[0]))

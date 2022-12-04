@@ -56,7 +56,7 @@ def transponeren(bingokaart):
     return transponeerde_kaart
 
 
-# import os
+import os
 
 # os.chdir(os.getcwd() + "\\Eindopdracht\\")
 file = open("test_input.txt")
@@ -89,7 +89,7 @@ for line in file.readlines():               # line is als vb: line = ['zin_1', '
         teller += 1
         temp_lijst = []
 
-print(bingokaarten)
+print("\n" + str(bingokaarten))
 
 file.close()
 

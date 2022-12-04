@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['Bingo.py']
+recent_files = ['Bingo.py', '..\\..\\..\\..\\Blok 2 2022-2023\\2.2 OPR\\WorkDir\\TSPexact.py']
 
 [main]
 version = 0.2.0

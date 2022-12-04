@@ -19,66 +19,113 @@ import os
 os.chdir(os.getcwd() + "\\Mijn uitwerking\\Opgaven Deel 10\\Opgave 10.11\\")
 file = open("scores.txt")
 
-# maand lijst opslaan in een variabele regel1:
-regel1 = file.readline().split()
-regel1.remove("Naam")
-
-maandnaam_input = input("Vul een maandnaam in (Let op, als je januari wilt intypen, type dan in de eerste drie letters! (=jan)): ")
-voetballernaam_input = input("Vul een voetballernaam in: ")
-
-maandnum = 0
-
-while maandnaam_input not in regel1:
-        maandnaam_input = input("Vul maandnaam nogmaals in (Je hebt het verkeerd gespeld: ")
-# while voetballernaam_input not in zin.split():
-#     print(zin.split())
-#     input("Vul een voetballernaam CORRECT in: ")
-
-# maandnaam converteren naar maandnum
-for i in range(len(regel1)):
-    if maandnaam_input == regel1[i]:
-        maandnum = i + 1
-        break
-
-alle_scores = []
+maanden = []
 namen = []
+scores = []
+dictionary = []
 
+# Maanden setup
+for maand in file.readline().split():
+    if maand != "Naam":
+        maanden.append(maand)
+
+print(maanden)
+
+# Namen en scores setup
+i = 0
 for zin in file.readlines():
-    individu_scores = zin.split()
-    namen.append(individu_scores[0])
-    del individu_scores[0:1]
-    alle_scores.append(individu_scores)
+    i += 1
+    namen.append(zin.split()[0])
+    scores.append(zin.split()[1:12+1])  # pak de tweede tot en met de 13ste element, ofwel 1e maand score t/m 12e score pakken :D
+    dictionary.append([i, namen[i - 1]])  # 1 = Ronaldo, 2 = Maradonna, ..., 8 = Rijkaard -> (in code) -> [[1, 'Ronaldo'], [2, 'Maradonna'], ..., [3, 'Rijkaard']]
 
-print(regel1)
+maandInput = input("Vul eerste drie letters van het maand in: ")
+naaminput = input("Vul naam in: ")
 
-# print(alle_scores)
-# print(namen)
+while maandInput not in maanden:
+    maandInput = input("Vul eerste drie letters van het maand in: ")
 
-Ronaldo = alle_scores[0]
-Maradonna = alle_scores[1]
-Figo = alle_scores[2]
-Zidane = alle_scores[3]
-Muller = alle_scores[4]
-Gullit = alle_scores[5]
-Cruijf = alle_scores[6]
-Rijkaard = alle_scores[7]
+while naaminput not in namen:
+    naaminput = input("Vul naam in: ")
 
-print(Ronaldo)
-print(Maradonna)
-print(Figo)
-print(Zidane)
-print(Muller)
-print(Gullit)
-print(Cruijf)
-print(Rijkaard)
-
-# # zoek score num bij bijbehorende voetballer en maand
-# for zin in file.readlines():    
-#     while voetballernaam_input not in zin.split():
-#         voetballernaam_input = input("Vul een voetballernaam CORRECT in: ")
-
-#     if voetballernaam_input in zin.split():
-#         print("score is: " + str(zin.split()[maandnum]))
-#         break
-
+for i in range(len(namen)):
+    if dictionary[i][1] == naaminput:
+        for j in range(len(maanden)):
+            if maandInput == maanden[j]:
+                print(scores[dictionary[i][0] - 1][j])
+        
 file.close()
+
+
+
+# Uitwerking:
+'''
+# c.
+file = open('scores.txt')
+scores = file.readlines()
+
+score_matrix = []
+
+for line in scores:
+    score_matrix.append(line.split())
+
+print(score_matrix)
+
+# Bepaal eerst in welke rij de voetballer staat, let op je begint met index 0.
+def rijnr():
+    # Als naam niet gevonden is, naam opnieuw vragen en zoeken in de matrix, totdat bekende naam is ingevoerd.
+    is_naamonbekend = True
+    is_eersteloop = True
+    
+    while is_naamonbekend:
+        if is_eersteloop: #als de eersteloop True is, vraag dan om de naam als input anders, vraag opnieuw om een naam
+            naam = input('Vul de naam van de voetballer in: ')
+        else:
+            naam = input('Ingevulde naam van de voetballer staat niet in het bestand, vul een juiste naam in: ')
+            
+        rij_nr = 0
+        
+        for rij in score_matrix: #zoek dan de naam op in de matrix
+            if rij[0] == naam:
+                is_naamonbekend = False
+                return rij_nr
+            else:               
+                rij_nr = rij_nr + 1
+                if rij_nr == len(score_matrix): #als je aan het eind van de matrix zit, vraag dan opnieuw een naam
+                    is_eersteloop = False
+            
+# Bepaal eerst in welke kolom de maand staat, let op je begint met index 0.
+def kolomnr():
+    is_maandonbekend = True
+    is_eersteloop = True
+    
+    while is_maandonbekend:
+        if is_eersteloop:
+            naam = input('Vul de maandnaam in, afgekort dus als jan, feb of maa: ')
+        else:
+            naam = input('Ingevulde maand is niet juist, vul juiste maandnaam in als jan, feb of maa: ')        
+        kolom_nr = 0
+        for kolom in score_matrix[0]:  # Op de eerste rij staan de maandnamen
+            if kolom == naam:
+                is_maandonbekend = False
+                return kolom_nr
+            else:
+                kolom_nr = kolom_nr + 1
+                if kolom_nr == len(score_matrix[0]):
+                    is_eersteloop = False
+
+rij_index = rijnr()
+kolom_index = kolomnr()
+
+print(score_matrix[rij_index][kolom_index])  
+'''
+
+# Output:
+'''
+[['Naam', 'jan', 'feb', 'maa', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'], ['Ronaldo', '6', '6', '4', '8', '9', '7', '10', '6', '5', '7', '8', '9'], ['Maradonna', '5', '7', '3', '9', '8', '8', '9', '7', '4', '8', '7', '10'], ['Figo', '3', '9', '2', '4', '4', '16', '12', '6', '10', '7', '5', '6'], ['Zidane', '10', '9', '8', '7', '6', '5', '6', '7', '8', '9', '10', '11'], ['Muller', '5', '5', '5', '8', '8', '8', '10', '10', '10', '6', '6', '6'], ['Gullit', '3', '5', '7', '11', '13', '11', '7', '5', '3', '5', '7', '11'], ['Cruijf', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9'], ['Rijkaard', '11', '9', '10', '8', '7', '9', '9', '6', '5', '7', '6', '5']]
+Vul de naam van de voetballer in: Michiel
+Ingevulde naam van de voetballer staat niet in het bestand, vul een juiste naam in: Fido
+Ingevulde naam van de voetballer staat niet in het bestand, vul een juiste naam in: Figo
+Vul de maandnaam in, afgekort dus als jan, feb of maa: feb
+9
+'''

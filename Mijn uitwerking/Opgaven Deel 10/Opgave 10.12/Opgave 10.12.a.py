@@ -30,16 +30,11 @@ vector = [2, 4, 8]
 # a:
 sum = 0
 product = []
-temp = []
 
+for i in range(len(matrix)):
+    for j in range(len(vector)):
+        sum += (vector[j] * matrix[i][j])
+    product.append(sum)
+    som = 0
 
-
-# for j in range(len(vector)):
-#     for i in range(len(matrix)):
-#         sum += int(vector[i] * matrix[j][i])
-#         temp.append(sum)
-#         sum = 0
-#     product.append(temp)
-#     temp = []
-
-# print(product)
+print(product)

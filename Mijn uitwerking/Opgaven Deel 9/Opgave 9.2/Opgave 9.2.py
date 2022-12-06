@@ -259,3 +259,12 @@ print("\n\n3 - 3 = " + str(3 - 3))
 print("\n\n3 / 3 = " + str(3 / 3))  # Let op, dit veranderd gauw naar float type die 3 / 3 = 1.0
 print("\n\n3 % 2 = " + str(3 % 2))
 print("\n\n10 // 3 = " + str(10 // 3))
+
+# zip
+print("\n\nzip (transponeren) functie en list comprehension (zie opgave 10.12.b): ")
+matrix = [[1, 2, 3], [5, 7, 11], [13, 17, 19]]
+matrix2 = [[2, 4, 8], [3, 9, 27], [4, 16, 64]]
+print("Getransponeerde matrix: " + str(tuple(zip(*matrix))) + "\nDe tuple zorgt ervoor dat je de zip(matrix) kan zien in output (het zichtbaar maken)\nVerder doet die * in zip, dat het extra buitenhaakjes weghaalt.")
+print([a for a in zip(*matrix)])
+print([a for a in zip(*matrix)][2][2])
+print([[sum(a*b for a,b in zip(matrix_row, matrix2_col)) for matrix2_col in zip(*matrix2)] for matrix_row in matrix])

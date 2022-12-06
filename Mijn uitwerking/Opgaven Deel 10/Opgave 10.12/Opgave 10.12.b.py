@@ -53,6 +53,27 @@ print(product)
 
 # Uitwerking:
 '''
+# b.
+matrix = [[1, 2, 3], [5, 7, 11], [13, 17, 19]]
+matrix2 = [[2, 4, 8], [3, 9, 27], [4, 16, 64]]
+
+vectorOutput = []
+
+for i in range(len(matrix)): # aantal rijen matrix 1  
+    rij = []
+    
+    for j in range(len(matrix2[0])):  # aantal kolommen matrix 2
+        som = 0
+        for k in range(len(matrix2)): # aantal rijen matrix 2
+            som = som + matrix[i][k]*matrix2[k][j]
+        rij.append(som)
+    vectorOutput.append(rij)
+    
+print(vectorOutput)
+'''
+
+# Alternatief:
+'''
 #zelfde als b maar met list comprehensions
 matrix = [[1, 2, 3], [5, 7, 11], [13, 17, 19]]
 matrix2 = [[2, 4, 8], [3, 9, 27], [4, 16, 64]]
